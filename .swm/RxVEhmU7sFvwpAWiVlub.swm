@@ -9,6 +9,8 @@
         "server.js_0",
         "webpack.config.js_0",
         "webpack.config.js_1",
+        "src/index.ejs_0",
+        "webpack.config.js_2",
         "src/script.js_0"
     ],
     "tests": [],
@@ -92,7 +94,7 @@
                 {
                     "swimmHunkMetadata": {
                         "hunkComments": [
-                            "The result of the build is our `ancientbeast,js` file which is being built by Webpack"
+                            "The result of the build is our `ancientbeast.js` file which is being built by Webpack"
                         ]
                     },
                     "hunkDiffLines": [
@@ -109,6 +111,23 @@
                         " \t\tdevtool: production ? 'none' : 'source-map',",
                         " \t\tmodule: {",
                         " \t\t\trules: ["
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": [
+                            "This is the webpack plugin we use for rendering the ejs file to HTML"
+                        ]
+                    },
+                    "hunkDiffLines": [
+                        "@@ -76,7 +69,6 @@",
+                        " \t\t\t\tpatterns: [{ from: 'static' }],",
+                        " \t\t\t}),",
+                        " \t\t\tnew HtmlWebpackPlugin({",
+                        "-\t\t\t\ttemplate: path.resolve(__dirname, 'src', 'index.ejs'),",
+                        " \t\t\t\tfavicon: path.resolve(__dirname, 'assets', 'favicon.png'),",
+                        " \t\t\t\tproduction,",
+                        " \t\t\t}),"
                     ]
                 }
             ]
@@ -160,9 +179,32 @@
                     ]
                 }
             ]
+        },
+        "src/index.ejs": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/index.ejs b/src/index.ejs\nindex 44d7c54c..44d7c54c 100644\n--- a/src/index.ejs\n+++ b/src/index.ejs",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": [
+                            "We later inject this js to `index.ejs` file"
+                        ]
+                    },
+                    "hunkDiffLines": [
+                        "@@ -9,7 +9,6 @@",
+                        " \t\t<meta name=\"monetization\" content=\"$pay.stronghold.co/1a15c4d9d46cdd64f9e9094a7c4f04240dc\">",
+                        " \t\t<meta name=\"theme-color\" content=\"black\">",
+                        " \t\t<link rel=\"manifest\" href=\"manifest.json\">",
+                        "-\t\t<title>Ancient Beast 0.4</title>",
+                        " \t\t<style>",
+                        " \t\t\t.scrim.loading {",
+                        " \t\t\topacity: 1;"
+                    ]
+                }
+            ]
         }
     },
     "app_version": "0.3.6-2",
     "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "55e5394ffd2921ca1424601aa5d8644769572665"
+    "last_commit_sha_for_swimm_patch": "8b530dbdf364e21af4a7941da41dbde7104c4092"
 }
