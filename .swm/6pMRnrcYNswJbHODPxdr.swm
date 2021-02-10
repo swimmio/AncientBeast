@@ -1,0 +1,54 @@
+{
+    "id": "6pMRnrcYNswJbHODPxdr",
+    "name": "Creatures and multiplayer",
+    "dod": "",
+    "description": "We need to update the server when a creature move so it will update in other players' screen",
+    "summary": "",
+    "hunksOrder": [
+        "src/creature.js_0"
+    ],
+    "tests": [],
+    "hints": [],
+    "play_mode": "walkthrough",
+    "swimmPatch": {
+        "src/creature.js": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/creature.js b/src/creature.js\nindex a0f099f2..a0f099f2 100644\n--- a/src/creature.js\n+++ b/src/creature.js",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -470,22 +470,6 @@",
+                        " \t\t\t\t\t\tgame.activeCreature.queryMove();",
+                        " \t\t\t\t\t\treturn;",
+                        " \t\t\t\t\t}",
+                        "-",
+                        "-\t\t\t\t\tgame.gamelog.add({",
+                        "-\t\t\t\t\t\taction: 'move',",
+                        "-\t\t\t\t\t\ttarget: {",
+                        "-\t\t\t\t\t\t\tx: hex.x,",
+                        "-\t\t\t\t\t\t\ty: hex.y,",
+                        "-\t\t\t\t\t\t},",
+                        "-\t\t\t\t\t});",
+                        "-\t\t\t\t\tif (game.multiplayer) {",
+                        "-\t\t\t\t\t\tgame.gameplay.moveTo({",
+                        "-\t\t\t\t\t\t\ttarget: {",
+                        "-\t\t\t\t\t\t\t\tx: hex.x,",
+                        "-\t\t\t\t\t\t\t\ty: hex.y,",
+                        "-\t\t\t\t\t\t\t},",
+                        "-\t\t\t\t\t\t});",
+                        "-\t\t\t\t\t}",
+                        " \t\t\t\t\targs.creature.delayable = false;",
+                        " \t\t\t\t\tgame.UI.btnDelay.changeState('disabled');",
+                        " \t\t\t\t\targs.creature.moveTo(hex, {"
+                    ]
+                }
+            ]
+        }
+    },
+    "app_version": "0.3.6-2",
+    "file_version": "1.0.4",
+    "last_commit_sha_for_swimm_patch": "75551ea448576bdea9e91b8aa1ba0ef2e3a2a5b4"
+}
