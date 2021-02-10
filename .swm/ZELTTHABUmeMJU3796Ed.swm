@@ -1,0 +1,110 @@
+{
+    "id": "ZELTTHABUmeMJU3796Ed",
+    "name": "What are abilities",
+    "dod": "",
+    "description": "Exploring the abilities folder",
+    "summary": "",
+    "hunksOrder": [
+        "src/ability.js_0",
+        "src/creature.js_0",
+        "src/creature.js_1"
+    ],
+    "tests": [],
+    "hints": [],
+    "play_mode": "walkthrough",
+    "swimmPatch": {
+        "src/ability.js": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/ability.js b/src/ability.js\nindex 93818558..93818558 100644\n--- a/src/ability.js\n+++ b/src/ability.js",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": [
+                            "Let's first explore the ability class"
+                        ]
+                    },
+                    "hunkDiffLines": [
+                        "@@ -5,29 +5,6 @@",
+                        " import { isTeam, Team } from './utility/team';",
+                        " import * as arrayUtils from './utility/arrayUtils';",
+                        " ",
+                        "-/**",
+                        "- * Ability Class",
+                        "- *",
+                        "- * Class parsing function from creature abilities",
+                        "- */",
+                        "-export class Ability {",
+                        "-\tconstructor(creature, abilityID, game) {",
+                        "-\t\tthis.creature = creature;",
+                        "-\t\tthis.game = game;",
+                        "-\t\tthis.used = false;",
+                        "-\t\tthis.id = abilityID;",
+                        "-\t\tthis.priority = 0; // Priority for same trigger",
+                        "-\t\tthis.timesUsed = 0;",
+                        "-\t\tthis.timesUsedThisTurn = 0;",
+                        "-\t\tthis.token = 0;",
+                        "-\t\tthis.upgraded = false;",
+                        "-",
+                        "-\t\tlet data = game.retrieveCreatureStats(creature.type);",
+                        "-\t\t$j.extend(true, this, game.abilities[data.id][abilityID], data.ability_info[abilityID]);",
+                        "-\t\tif (this.requirements === undefined && this.costs !== undefined) {",
+                        "-\t\t\tthis.requirements = this.costs;",
+                        "-\t\t}",
+                        "-\t}",
+                        " ",
+                        " \thasUpgrade() {",
+                        " \t\treturn this.game.abilityUpgrades >= 0 && this.upgrade;"
+                    ]
+                }
+            ]
+        },
+        "src/creature.js": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/creature.js b/src/creature.js\nindex a0f099f2..a0f099f2 100644\n--- a/src/creature.js\n+++ b/src/creature.js",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": [
+                            "So the creature class imports Ability"
+                        ]
+                    },
+                    "hunkDiffLines": [
+                        "@@ -1,5 +1,4 @@",
+                        " import * as $j from 'jquery';",
+                        "-import { Ability } from './ability';",
+                        " import { search } from './utility/pathfinding';",
+                        " import { Hex } from './utility/hex';",
+                        " import * as arrayUtils from './utility/arrayUtils';"
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": [
+                            "and uses it to instanciate the creature's abilities",
+                            "notice that we pass the game instance to the Ctor"
+                        ]
+                    },
+                    "hunkDiffLines": [
+                        "@@ -122,13 +121,6 @@",
+                        " \t\tthis.remainingMove = 0; //Default value recovered each turn",
+                        " \t\tthis.dizzy = false;",
+                        " ",
+                        "-\t\t// Abilities",
+                        "-\t\tthis.abilities = [",
+                        "-\t\t\tnew Ability(this, 0, game),",
+                        "-\t\t\tnew Ability(this, 1, game),",
+                        "-\t\t\tnew Ability(this, 2, game),",
+                        "-\t\t\tnew Ability(this, 3, game),",
+                        "-\t\t];",
+                        " ",
+                        " \t\tthis.updateHex();",
+                        " "
+                    ]
+                }
+            ]
+        }
+    },
+    "app_version": "0.3.6-2",
+    "file_version": "1.0.4",
+    "last_commit_sha_for_swimm_patch": "98a8a402d88e95925902be11601f1e64505d72bd"
+}
