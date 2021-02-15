@@ -1,210 +1,186 @@
 {
     "id": "RxVEhmU7sFvwpAWiVlub",
     "name": "How the game is being served",
-    "dod": "",
-    "description": "In order to serve the game we use the express server.\nHere are some links if you want to know more about [node](https://nodejs.org/en/) or [express](https://expressjs.com).\nKnow that we only use it to serve the file so nothing fancy...\n\n",
-    "summary": "",
-    "hunksOrder": [
-        "package.json_0",
-        "server.js_0",
-        "webpack.config.js_0",
-        "webpack.config.js_1",
-        "src/index.ejs_0",
-        "webpack.config.js_2",
-        "src/script.js_0"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "package.json": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/package.json b/package.json\nindex 9c820197..9c820197 100644\n--- a/package.json\n+++ b/package.json",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "When you run the dev env with `npm run start` we call the server.js script"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -67,7 +67,6 @@",
-                        " \t\"scripts\": {",
-                        " \t\t\"build\": \"npm run assetLister && webpack --mode=production\",",
-                        " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",",
-                        "-\t\t\"start\": \"cross-env NODE_ENV=production node server.js\",",
-                        " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",",
-                        " \t\t\"assetLister\": \"node ./assetLister.js\",",
-                        " \t\t\"lint\": \"eslint src/*.js src/**/*.js\","
-                    ]
-                }
-            ]
-        },
-        "server.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/server.js b/server.js\nindex f6f9df1a..f6f9df1a 100644\n--- a/server.js\n+++ b/server.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The server uses only 2 folders for serving, the most important one is the `deploy` folder where we keep our initial html"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -10,14 +10,6 @@",
-                        " // Enable gzip compression",
-                        " app.use(compression());",
-                        " ",
-                        "-// Assets are hashed so they can be in the cache for longer",
-                        "-app.use(",
-                        "-\t'/assets/',",
-                        "-\texpress.static(path.join(__dirname, 'deploy', 'assets'), {",
-                        "-\t\tmaxAge: '1d',",
-                        "-\t}),",
-                        "-);",
-                        "-app.use(express.static(path.join(__dirname, 'deploy')));",
-                        " ",
-                        " // Listen for server, and use static routing for deploy directory",
-                        " app.listen(port, ip, () => {"
-                    ]
-                }
-            ]
-        },
-        "webpack.config.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/webpack.config.js b/webpack.config.js\nindex 16864481..16864481 100644\n--- a/webpack.config.js\n+++ b/webpack.config.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The main file we build from is `script.js`"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -14,7 +14,6 @@",
-                        " \tconst production = (argv && argv.mode === 'production') || process.env.NODE_ENV === 'production';",
-                        " ",
-                        " \treturn {",
-                        "-\t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
-                        " \t\toutput: {",
-                        " \t\t\tpath: path.resolve(__dirname, 'deploy'),",
-                        " \t\t\tfilename: 'ancientbeast.js',"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The result of the build is our `ancientbeast.js` file which is being built by Webpack"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -15,12 +15,6 @@",
-                        " ",
-                        " \treturn {",
-                        " \t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
-                        "-\t\toutput: {",
-                        "-\t\t\tpath: path.resolve(__dirname, 'deploy'),",
-                        "-\t\t\tfilename: 'ancientbeast.js',",
-                        "-\t\t\t// chunkFilename: '[id].chunk.js',",
-                        "-\t\t\t// publicPath: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/',",
-                        "-\t\t},",
-                        " \t\tdevtool: production ? 'none' : 'source-map',",
-                        " \t\tmodule: {",
-                        " \t\t\trules: ["
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "This is the webpack plugin we use for rendering the ejs file to HTML"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -76,7 +69,6 @@",
-                        " \t\t\t\tpatterns: [{ from: 'static' }],",
-                        " \t\t\t}),",
-                        " \t\t\tnew HtmlWebpackPlugin({",
-                        "-\t\t\t\ttemplate: path.resolve(__dirname, 'src', 'index.ejs'),",
-                        " \t\t\t\tfavicon: path.resolve(__dirname, 'assets', 'favicon.png'),",
-                        " \t\t\t\tproduction,",
-                        " \t\t\t}),"
-                    ]
-                }
-            ]
-        },
-        "src/script.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/script.js b/src/script.js\nindex 380fbaab..380fbaab 100644\n--- a/src/script.js\n+++ b/src/script.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "And then the game loads the global variables the CSS and the HTML is mostly already rendered"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -12,32 +12,4 @@",
-                        " // Load the stylesheet",
-                        " import './style/main.less';",
-                        " ",
-                        "-// Generic object we can decorate with helper methods to simply dev and user experience.",
-                        "-// TODO: Expose this in a less hacky way.",
-                        "-let AB = {};",
-                        "-let session = {};",
-                        "-// Create the game",
-                        "-const G = new Game('0.4');",
-                        "-// Helper properties and methods for retrieving and playing back game logs.",
-                        "-// TODO: Expose these in a less hacky way too.",
-                        "-AB.currentGame = G;",
-                        "-AB.getLog = AB.currentGame.gamelog.get.bind(AB.currentGame.gamelog);",
-                        "-AB.restoreGame = AB.currentGame.gamelog.play.bind(AB.currentGame.gamelog);",
-                        "-window.AB = AB;",
-                        "-const connect = new Connect(G);",
-                        "-G.connect = connect;",
-                        "-",
-                        "-// const email = \"junior@example.com\";",
-                        "-// const password = \"8484ndnso\";",
-                        "-// const session = Cli.authenticateEmail({ email: email, password: password, create: true, username: \"boo\" })",
-                        "-// Load the abilities",
-                        "-dataJson.forEach(async (creature) => {",
-                        "-\tif (!creature.playable) {",
-                        "-\t\treturn;",
-                        "-\t}",
-                        "-",
-                        "-\timport(`./abilities/${creature.name.split(' ').join('-')}`).then((generator) =>",
-                        "-\t\tgenerator.default(G),",
-                        "-\t);",
-                        "-});",
-                        " "
-                    ]
-                }
-            ]
-        },
-        "src/index.ejs": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/index.ejs b/src/index.ejs\nindex 44d7c54c..44d7c54c 100644\n--- a/src/index.ejs\n+++ b/src/index.ejs",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "We later inject this js to `index.ejs` file"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -9,7 +9,6 @@",
-                        " \t\t<meta name=\"monetization\" content=\"$pay.stronghold.co/1a15c4d9d46cdd64f9e9094a7c4f04240dc\">",
-                        " \t\t<meta name=\"theme-color\" content=\"black\">",
-                        " \t\t<link rel=\"manifest\" href=\"manifest.json\">",
-                        "-\t\t<title>Ancient Beast 0.4</title>",
-                        " \t\t<style>",
-                        " \t\t\t.scrim.loading {",
-                        " \t\t\topacity: 1;"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "package.json": "9c820197548b8ed95b3524476a10cef198a45a1c",
+            "server.js": "f6f9df1a9ecd0fe16ebb4b8a08f560dec070ace6",
+            "webpack.config.js": "1686448119f6c825631cf9634465f386732c6a1b",
+            "src/index.ejs": "44d7c54cbd781a94dfa68d24cee2b019ce184267",
+            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "8b530dbdf364e21af4a7941da41dbde7104c4092"
+    "content": [
+        {
+            "type": "text",
+            "text": "In order to serve the game we use the express server.\nHere are some links if you want to know more about [node](https://nodejs.org/en/) or [express](https://expressjs.com).\nKnow that we only use it to serve the file so nothing fancy...\n\n"
+        },
+        {
+            "type": "snippet",
+            "path": "package.json",
+            "comments": [
+                "When you run the dev env with `npm run start` we call the server.js script"
+            ],
+            "firstLineNumber": 67,
+            "lines": [
+                " \t\"scripts\": {",
+                " \t\t\"build\": \"npm run assetLister && webpack --mode=production\",",
+                " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",",
+                "*\t\t\"start\": \"cross-env NODE_ENV=production node server.js\",",
+                " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",",
+                " \t\t\"assetLister\": \"node ./assetLister.js\",",
+                " \t\t\"lint\": \"eslint src/*.js src/**/*.js\","
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "server.js",
+            "comments": [
+                "The server uses only 2 folders for serving, the most important one is the `deploy` folder where we keep our initial html"
+            ],
+            "firstLineNumber": 10,
+            "lines": [
+                " // Enable gzip compression",
+                " app.use(compression());",
+                " ",
+                "*// Assets are hashed so they can be in the cache for longer",
+                "*app.use(",
+                "*\t'/assets/',",
+                "*\texpress.static(path.join(__dirname, 'deploy', 'assets'), {",
+                "*\t\tmaxAge: '1d',",
+                "*\t}),",
+                "*);",
+                "*app.use(express.static(path.join(__dirname, 'deploy')));",
+                " ",
+                " // Listen for server, and use static routing for deploy directory",
+                " app.listen(port, ip, () => {"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "webpack.config.js",
+            "comments": [
+                "The main file we build from is `script.js`"
+            ],
+            "firstLineNumber": 14,
+            "lines": [
+                " \tconst production = (argv && argv.mode === 'production') || process.env.NODE_ENV === 'production';",
+                " ",
+                " \treturn {",
+                "*\t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
+                " \t\toutput: {",
+                " \t\t\tpath: path.resolve(__dirname, 'deploy'),",
+                " \t\t\tfilename: 'ancientbeast.js',"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "webpack.config.js",
+            "comments": [
+                "The result of the build is our `ancientbeast.js` file which is being built by Webpack"
+            ],
+            "firstLineNumber": 15,
+            "lines": [
+                " ",
+                " \treturn {",
+                " \t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
+                "*\t\toutput: {",
+                "*\t\t\tpath: path.resolve(__dirname, 'deploy'),",
+                "*\t\t\tfilename: 'ancientbeast.js',",
+                "*\t\t\t// chunkFilename: '[id].chunk.js',",
+                "*\t\t\t// publicPath: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/',",
+                "*\t\t},",
+                " \t\tdevtool: production ? 'none' : 'source-map',",
+                " \t\tmodule: {",
+                " \t\t\trules: ["
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/index.ejs",
+            "comments": [
+                "We later inject this js to `index.ejs` file"
+            ],
+            "firstLineNumber": 9,
+            "lines": [
+                " \t\t<meta name=\"monetization\" content=\"$pay.stronghold.co/1a15c4d9d46cdd64f9e9094a7c4f04240dc\">",
+                " \t\t<meta name=\"theme-color\" content=\"black\">",
+                " \t\t<link rel=\"manifest\" href=\"manifest.json\">",
+                "*\t\t<title>Ancient Beast 0.4</title>",
+                " \t\t<style>",
+                " \t\t\t.scrim.loading {",
+                " \t\t\topacity: 1;"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "webpack.config.js",
+            "comments": [
+                "This is the webpack plugin we use for rendering the ejs file to HTML"
+            ],
+            "firstLineNumber": 76,
+            "lines": [
+                " \t\t\t\tpatterns: [{ from: 'static' }],",
+                " \t\t\t}),",
+                " \t\t\tnew HtmlWebpackPlugin({",
+                "*\t\t\t\ttemplate: path.resolve(__dirname, 'src', 'index.ejs'),",
+                " \t\t\t\tfavicon: path.resolve(__dirname, 'assets', 'favicon.png'),",
+                " \t\t\t\tproduction,",
+                " \t\t\t}),"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/script.js",
+            "comments": [
+                "And then the game loads the global variables the CSS and the HTML is mostly already rendered"
+            ],
+            "firstLineNumber": 12,
+            "lines": [
+                " // Load the stylesheet",
+                " import './style/main.less';",
+                " ",
+                "*// Generic object we can decorate with helper methods to simply dev and user experience.",
+                "*// TODO: Expose this in a less hacky way.",
+                "*let AB = {};",
+                "*let session = {};",
+                "*// Create the game",
+                "*const G = new Game('0.4');",
+                "*// Helper properties and methods for retrieving and playing back game logs.",
+                "*// TODO: Expose these in a less hacky way too.",
+                "*AB.currentGame = G;",
+                "*AB.getLog = AB.currentGame.gamelog.get.bind(AB.currentGame.gamelog);",
+                "*AB.restoreGame = AB.currentGame.gamelog.play.bind(AB.currentGame.gamelog);",
+                "*window.AB = AB;",
+                "*const connect = new Connect(G);",
+                "*G.connect = connect;",
+                "*",
+                "*// const email = \"junior@example.com\";",
+                "*// const password = \"8484ndnso\";",
+                "*// const session = Cli.authenticateEmail({ email: email, password: password, create: true, username: \"boo\" })",
+                "*// Load the abilities",
+                "*dataJson.forEach(async (creature) => {",
+                "*\tif (!creature.playable) {",
+                "*\t\treturn;",
+                "*\t}",
+                "*",
+                "*\timport(`./abilities/${creature.name.split(' ').join('-')}`).then((generator) =>",
+                "*\t\tgenerator.default(G),",
+                "*\t);",
+                "*});",
+                " "
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

@@ -1,158 +1,142 @@
 {
     "id": "1pMjNxYGvihN4nkvGADl",
     "name": "The multiplayer folder",
-    "dod": "",
-    "description": "The multiplayer folder consists of 5 interesting files\n- `authenticate`\n- `connect`\n- `gameplay`\n- `match`\n- `session`\n\nWe are going to show how the all connect\n\n",
-    "summary": "",
-    "hunksOrder": [
-        "src/script.js_0",
-        "src/multiplayer/authenticate.js_0",
-        "src/multiplayer/session.js_0",
-        "src/game.js_0"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/script.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/script.js b/src/script.js\nindex 380fbaab..380fbaab 100644\n--- a/src/script.js\n+++ b/src/script.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The following snippet shows how we create a new auth instance passing the user credentials and a connect instance"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -140,13 +140,6 @@",
-                        " \t\t\t$j('.error-pw').show();",
-                        " \t\t\treturn;",
-                        " \t\t}",
-                        "-\t\tlet auth = new Authenticate(reg, connect.client);",
-                        "-\t\tlet session = await auth.register();",
-                        "-\t\tlet sess = new SessionI(session);",
-                        "-\t\tsess.storeSession();",
-                        "-\t\tG.session = session;",
-                        "-\t\tG.client = connect.client;",
-                        "-\t\tG.multiplayer = true;",
-                        " \t\t$j('.setupFrame,.welcome').show();",
-                        " \t\t$j('.match-frame').show();",
-                        " \t\t$j('.loginregFrame,#gameSetup').hide();"
-                    ]
-                }
-            ]
-        },
-        "src/multiplayer/authenticate.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/multiplayer/authenticate.js b/src/multiplayer/authenticate.js\nindex 3614dc44..3614dc44 100644\n--- a/src/multiplayer/authenticate.js\n+++ b/src/multiplayer/authenticate.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The constructor then sets the client and user details data members"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -1,10 +1,4 @@",
-                        " export default class Authenticate {",
-                        "-\tconstructor(login, client) {",
-                        "-\t\tthis.username = login.username || '';",
-                        "-\t\tthis.email = login.email || '';",
-                        "-\t\tthis.password = login.password || '';",
-                        "-\t\tthis.client = client;",
-                        "-\t}",
-                        " \tasync register() {",
-                        " \t\tvar session = await this.client.authenticateEmail({",
-                        " \t\t\temail: this.email,"
-                    ]
-                }
-            ]
-        },
-        "src/multiplayer/session.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/multiplayer/session.js b/src/multiplayer/session.js\nindex 33e50198..33e50198 100644\n--- a/src/multiplayer/session.js\n+++ b/src/multiplayer/session.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "We then use Nakama session and store it in the local storage"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -1,19 +1,3 @@",
-                        "-import { Session } from '@heroiclabs/nakama-js/dist/nakama-js.esm';",
-                        "-export default class SessionI {",
-                        "-\tconstructor(session) {",
-                        "-\t\tthis.session = session || '';",
-                        "-\t}",
-                        "-\tstoreSession() {",
-                        "-\t\tif (typeof Storage !== 'undefined') {",
-                        "-\t\t\tlocalStorage.setItem('nakamaToken', this.session.token);",
-                        "-\t\t\tconsole.log('New Session stored.');",
-                        "-\t\t}",
-                        "-\t}",
-                        "-\tasync getSessionFromStorage() {",
-                        "-\t\tif (typeof Storage !== 'undefined') {",
-                        "-\t\t\treturn Promise.resolve(localStorage.getItem('nakamaToken'));",
-                        "-\t\t}",
-                        "-\t}",
-                        " ",
-                        " \tasync restoreSession() {",
-                        " \t\tvar session = null;"
-                    ]
-                }
-            ]
-        },
-        "src/game.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/game.js b/src/game.js\nindex 9e1b4753..9e1b4753 100644\n--- a/src/game.js\n+++ b/src/game.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "In the game instance we create a new gameplay (only if multiplayer is on)"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -554,31 +554,6 @@",
-                        " ",
-                        " \t\tthis.matchInit();",
-                        " \t}",
-                        "-\tasync matchInit() {",
-                        "-\t\tif (this.multiplayer) {",
-                        "-\t\t\tif (Object.keys(this.match).length === 0) {",
-                        "-\t\t\t\tawait this.connect.serverConnect(this.session);",
-                        "-\t\t\t\tlet match = new MatchI(this.connect, this, this.session);",
-                        "-\t\t\t\tlet gameplay = new Gameplay(this, match);",
-                        "-\t\t\t\tmatch.gameplay = gameplay;",
-                        "-\t\t\t\tthis.gameplay = gameplay;",
-                        "-\t\t\t\tthis.match = match;",
-                        "-",
-                        "-\t\t\t\t// Only host",
-                        "-\t\t\t\tif (this.matchInitialized) {",
-                        "-\t\t\t\t\tlet n = await this.match.matchCreate();",
-                        "-",
-                        "-\t\t\t\t\tconsole.log('created match', n);",
-                        "-\t\t\t\t\tawait match.matchMaker(n, this.configData);",
-                        "-\t\t\t\t}",
-                        "-\t\t\t}",
-                        "-\t\t\t// Non-host",
-                        "-\t\t\tif (this.matchid) {",
-                        "-\t\t\t\tlet n = await this.match.matchJoin(this.matchid);",
-                        "-\t\t\t\tconsole.log('joined match', n);",
-                        "-\t\t\t}",
-                        "-\t\t}",
-                        "-\t}",
-                        " \tasync matchJoin() {",
-                        " \t\tawait this.matchInit();",
-                        " \t\tawait this.match.matchMaker();"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec",
+            "src/multiplayer/authenticate.js": "3614dc44b925b1a2cb41f49068d0851c8b201e6a",
+            "src/multiplayer/session.js": "33e50198beb8c8705f0b16dfc3516af130c35212",
+            "src/game.js": "9e1b4753a1f17ba5b5e1a85db8c0db2ff994adce"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "7156ecc916264da200d1f2768055a062c0302032"
+    "content": [
+        {
+            "type": "text",
+            "text": "The multiplayer folder consists of 5 interesting files\n- `authenticate`\n- `connect`\n- `gameplay`\n- `match`\n- `session`\n\nWe are going to show how the all connect\n\n"
+        },
+        {
+            "type": "snippet",
+            "path": "src/script.js",
+            "comments": [
+                "The following snippet shows how we create a new auth instance passing the user credentials and a connect instance"
+            ],
+            "firstLineNumber": 140,
+            "lines": [
+                " \t\t\t$j('.error-pw').show();",
+                " \t\t\treturn;",
+                " \t\t}",
+                "*\t\tlet auth = new Authenticate(reg, connect.client);",
+                "*\t\tlet session = await auth.register();",
+                "*\t\tlet sess = new SessionI(session);",
+                "*\t\tsess.storeSession();",
+                "*\t\tG.session = session;",
+                "*\t\tG.client = connect.client;",
+                "*\t\tG.multiplayer = true;",
+                " \t\t$j('.setupFrame,.welcome').show();",
+                " \t\t$j('.match-frame').show();",
+                " \t\t$j('.loginregFrame,#gameSetup').hide();"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/multiplayer/authenticate.js",
+            "comments": [
+                "The constructor then sets the client and user details data members"
+            ],
+            "firstLineNumber": 1,
+            "lines": [
+                " export default class Authenticate {",
+                "*\tconstructor(login, client) {",
+                "*\t\tthis.username = login.username || '';",
+                "*\t\tthis.email = login.email || '';",
+                "*\t\tthis.password = login.password || '';",
+                "*\t\tthis.client = client;",
+                "*\t}",
+                " \tasync register() {",
+                " \t\tvar session = await this.client.authenticateEmail({",
+                " \t\t\temail: this.email,"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/multiplayer/session.js",
+            "comments": [
+                "We then use Nakama session and store it in the local storage"
+            ],
+            "firstLineNumber": 1,
+            "lines": [
+                "*import { Session } from '@heroiclabs/nakama-js/dist/nakama-js.esm';",
+                "*export default class SessionI {",
+                "*\tconstructor(session) {",
+                "*\t\tthis.session = session || '';",
+                "*\t}",
+                "*\tstoreSession() {",
+                "*\t\tif (typeof Storage !== 'undefined') {",
+                "*\t\t\tlocalStorage.setItem('nakamaToken', this.session.token);",
+                "*\t\t\tconsole.log('New Session stored.');",
+                "*\t\t}",
+                "*\t}",
+                "*\tasync getSessionFromStorage() {",
+                "*\t\tif (typeof Storage !== 'undefined') {",
+                "*\t\t\treturn Promise.resolve(localStorage.getItem('nakamaToken'));",
+                "*\t\t}",
+                "*\t}",
+                " ",
+                " \tasync restoreSession() {",
+                " \t\tvar session = null;"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [
+                "In the game instance we create a new gameplay (only if multiplayer is on)"
+            ],
+            "firstLineNumber": 554,
+            "lines": [
+                " ",
+                " \t\tthis.matchInit();",
+                " \t}",
+                "*\tasync matchInit() {",
+                "*\t\tif (this.multiplayer) {",
+                "*\t\t\tif (Object.keys(this.match).length === 0) {",
+                "*\t\t\t\tawait this.connect.serverConnect(this.session);",
+                "*\t\t\t\tlet match = new MatchI(this.connect, this, this.session);",
+                "*\t\t\t\tlet gameplay = new Gameplay(this, match);",
+                "*\t\t\t\tmatch.gameplay = gameplay;",
+                "*\t\t\t\tthis.gameplay = gameplay;",
+                "*\t\t\t\tthis.match = match;",
+                "*",
+                "*\t\t\t\t// Only host",
+                "*\t\t\t\tif (this.matchInitialized) {",
+                "*\t\t\t\t\tlet n = await this.match.matchCreate();",
+                "*",
+                "*\t\t\t\t\tconsole.log('created match', n);",
+                "*\t\t\t\t\tawait match.matchMaker(n, this.configData);",
+                "*\t\t\t\t}",
+                "*\t\t\t}",
+                "*\t\t\t// Non-host",
+                "*\t\t\tif (this.matchid) {",
+                "*\t\t\t\tlet n = await this.match.matchJoin(this.matchid);",
+                "*\t\t\t\tconsole.log('joined match', n);",
+                "*\t\t\t}",
+                "*\t\t}",
+                "*\t}",
+                " \tasync matchJoin() {",
+                " \t\tawait this.matchInit();",
+                " \t\tawait this.match.matchMaker();"
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

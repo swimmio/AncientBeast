@@ -1,81 +1,76 @@
 {
     "id": "K15YZxLJ33tWWHcSt3PS",
     "name": "Jquery usage",
-    "dod": "",
-    "description": "We use Jquery as our frontend framework.\n",
-    "summary": "We started to work on the project in 2013 and it looks like migrating the project to a more modern framework will not worth the effort",
-    "hunksOrder": [
-        "package.json_0",
-        "src/script.js_0",
-        "src/script.js_1"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "package.json": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/package.json b/package.json\nindex 9c820197..9c820197 100644\n--- a/package.json\n+++ b/package.json",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "We install it as part of our dependencies "
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -29,7 +29,6 @@",
-                        " \t\t\"cross-env\": \"^7.0.2\",",
-                        " \t\t\"dotenv-webpack\": \"^3.0.0\",",
-                        " \t\t\"express\": \"^4.17.1\",",
-                        "-\t\t\"jquery\": \"^3.5.0\",",
-                        " \t\t\"jquery.transit\": \"0.9.12\",",
-                        " \t\t\"node-emoji\": \"^1.10.0\",",
-                        " \t\t\"phaser-ce\": \"2.16.0\""
-                    ]
-                }
-            ]
-        },
-        "src/script.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/script.js b/src/script.js\nindex 380fbaab..380fbaab 100644\n--- a/src/script.js\n+++ b/src/script.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "And import it as $J to avoid  namespace conflicts"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -1,5 +1,3 @@",
-                        "-// Import jQuery related stuff",
-                        "-import * as $j from 'jquery';",
-                        " import 'jquery.transit';",
-                        " import dataJson from '../assets/units/data.json';",
-                        " import Game from './game';"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The first time we load JQuery is in the `script.js` file when we wait for the DOM to be ready"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -41,7 +39,6 @@",
-                        " \t);",
-                        " });",
-                        " ",
-                        "-$j(document).ready(() => {",
-                        " \tlet scrim = $j('.scrim');",
-                        " \tscrim.on('transitionend', function () {",
-                        " \t\tscrim.remove();"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "package.json": "9c820197548b8ed95b3524476a10cef198a45a1c",
+            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "9075d7ff07a73f19d5777594993ab25b32e02b65"
+    "content": [
+        {
+            "type": "text",
+            "text": "We use Jquery as our frontend framework.\n"
+        },
+        {
+            "type": "snippet",
+            "path": "package.json",
+            "comments": [
+                "We install it as part of our dependencies "
+            ],
+            "firstLineNumber": 29,
+            "lines": [
+                " \t\t\"cross-env\": \"^7.0.2\",",
+                " \t\t\"dotenv-webpack\": \"^3.0.0\",",
+                " \t\t\"express\": \"^4.17.1\",",
+                "*\t\t\"jquery\": \"^3.5.0\",",
+                " \t\t\"jquery.transit\": \"0.9.12\",",
+                " \t\t\"node-emoji\": \"^1.10.0\",",
+                " \t\t\"phaser-ce\": \"2.16.0\""
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/script.js",
+            "comments": [
+                "And import it as $J to avoid  namespace conflicts"
+            ],
+            "firstLineNumber": 1,
+            "lines": [
+                "*// Import jQuery related stuff",
+                "*import * as $j from 'jquery';",
+                " import 'jquery.transit';",
+                " import dataJson from '../assets/units/data.json';",
+                " import Game from './game';"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/script.js",
+            "comments": [
+                "The first time we load JQuery is in the `script.js` file when we wait for the DOM to be ready"
+            ],
+            "firstLineNumber": 41,
+            "lines": [
+                " \t);",
+                " });",
+                " ",
+                "*$j(document).ready(() => {",
+                " \tlet scrim = $j('.scrim');",
+                " \tscrim.on('transitionend', function () {",
+                " \t\tscrim.remove();"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "We started to work on the project in 2013 and it looks like migrating the project to a more modern framework will not worth the effort"
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

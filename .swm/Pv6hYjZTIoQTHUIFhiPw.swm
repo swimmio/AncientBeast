@@ -1,101 +1,102 @@
 {
     "id": "Pv6hYjZTIoQTHUIFhiPw",
     "name": "Game mechanics",
-    "dod": "",
-    "description": " Game contains all Game elements and functions.\n It's the root element and defined only one time through the G variable.\n \n NOTE: Constructor does nothing because the G object must be defined\n before creating other class instances. The game setup is triggered\n to really start the game.\n\nattributes and variables starting with $ are jQuery elements and jQuery functions can be called directly from them.",
-    "summary": "Understanding the game mechanics will allow you to better debug and improve the game loop and logic flows",
-    "hunksOrder": [
-        "src/game.js_0",
-        "src/game.js_1"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/game.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/game.js b/src/game.js\nindex 9e1b4753..9e1b4753 100644\n--- a/src/game.js\n+++ b/src/game.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The game instance is where it's all connects",
-                            "It will include the players, creatures and abilities"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -54,51 +54,6 @@",
-                        " \t * creatureData :\t\tArray :\t\tArray containing all data for the creatures",
-                        " \t *",
-                        " \t */",
-                        "-\tconstructor(version) {",
-                        "-\t\tthis.version = version || 'dev';",
-                        "-\t\tthis.abilities = [];",
-                        "-\t\tthis.players = [];",
-                        "-\t\tthis.creatures = [];",
-                        "-\t\tthis.effects = [];",
-                        "-\t\tthis.activeCreature = {",
-                        "-\t\t\tid: 0,",
-                        "-\t\t};",
-                        "-\t\tthis.matchid = null;",
-                        "-\t\tthis.playersReady = false;",
-                        "-\t\tthis.preventSetup = false;",
-                        "-\t\tthis.animations = new Animations(this);",
-                        "-\t\tthis.queue = new CreatureQueue(this);",
-                        "-\t\tthis.creatureIdCounter = 1;",
-                        "-\t\tthis.creatureData = [];",
-                        "-\t\tthis.pause = false;",
-                        "-\t\tthis.gameState = 'initialized';",
-                        "-\t\tthis.pauseTime = 0;",
-                        "-\t\tthis.minimumTurnBeforeFleeing = 12;",
-                        "-\t\tthis.availableCreatures = [];",
-                        "-\t\tthis.animationQueue = [];",
-                        "-\t\tthis.checkTimeFrequency = 1000;",
-                        "-\t\tthis.gamelog = new GameLog(null, this);",
-                        "-\t\tthis.configData = {};",
-                        "-\t\tthis.match = {};",
-                        "-\t\tthis.gameplay = {};",
-                        "-\t\tthis.session = null;",
-                        "-\t\tthis.client = null;",
-                        "-\t\tthis.connect = null;",
-                        "-\t\tthis.debugMode = false;",
-                        "-\t\tthis.multiplayer = false;",
-                        "-\t\tthis.matchInitialized = false;",
-                        "-\t\tthis.realms = ['A', 'E', 'G', 'L', 'P', 'S', 'W'];",
-                        "-\t\tthis.availableMusic = [];",
-                        "-\t\tthis.soundEffects = [",
-                        "-\t\t\t'sounds/step',",
-                        "-\t\t\t'sounds/swing',",
-                        "-\t\t\t'sounds/swing2',",
-                        "-\t\t\t'sounds/swing3',",
-                        "-\t\t\t'sounds/heartbeat',",
-                        "-\t\t\t'sounds/drums',",
-                        "-\t\t\t'sounds/upgrade',",
-                        "-\t\t];",
-                        "-\t\tthis.inputMethod = 'Mouse';",
-                        " ",
-                        " \t\t// Gameplay properties",
-                        " \t\tthis.firstKill = false;"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The starting point for the game class is where we create the Phaser instance",
-                            "If you are not familiar with Phaser game engine please read more [here](https://phaser.io/)"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -110,3 +64,0 @@",
-                        "-\t\tthis.Phaser = new Phaser.Game(1920, 1080, Phaser.AUTO, 'combatwrapper', {",
-                        "-\t\t\tupdate: this.phaserUpdate.bind(this),",
-                        "-\t\t\trender: this.phaserRender.bind(this),"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/game.js": "9e1b4753a1f17ba5b5e1a85db8c0db2ff994adce"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "48a98a759a48538793434bdc42ad691b4f211ee7"
+    "content": [
+        {
+            "type": "text",
+            "text": " Game contains all Game elements and functions.\n It's the root element and defined only one time through the G variable.\n \n NOTE: Constructor does nothing because the G object must be defined\n before creating other class instances. The game setup is triggered\n to really start the game.\n\nattributes and variables starting with $ are jQuery elements and jQuery functions can be called directly from them."
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [
+                "The game instance is where it's all connects",
+                "It will include the players, creatures and abilities"
+            ],
+            "firstLineNumber": 54,
+            "lines": [
+                " \t * creatureData :\t\tArray :\t\tArray containing all data for the creatures",
+                " \t *",
+                " \t */",
+                "*\tconstructor(version) {",
+                "*\t\tthis.version = version || 'dev';",
+                "*\t\tthis.abilities = [];",
+                "*\t\tthis.players = [];",
+                "*\t\tthis.creatures = [];",
+                "*\t\tthis.effects = [];",
+                "*\t\tthis.activeCreature = {",
+                "*\t\t\tid: 0,",
+                "*\t\t};",
+                "*\t\tthis.matchid = null;",
+                "*\t\tthis.playersReady = false;",
+                "*\t\tthis.preventSetup = false;",
+                "*\t\tthis.animations = new Animations(this);",
+                "*\t\tthis.queue = new CreatureQueue(this);",
+                "*\t\tthis.creatureIdCounter = 1;",
+                "*\t\tthis.creatureData = [];",
+                "*\t\tthis.pause = false;",
+                "*\t\tthis.gameState = 'initialized';",
+                "*\t\tthis.pauseTime = 0;",
+                "*\t\tthis.minimumTurnBeforeFleeing = 12;",
+                "*\t\tthis.availableCreatures = [];",
+                "*\t\tthis.animationQueue = [];",
+                "*\t\tthis.checkTimeFrequency = 1000;",
+                "*\t\tthis.gamelog = new GameLog(null, this);",
+                "*\t\tthis.configData = {};",
+                "*\t\tthis.match = {};",
+                "*\t\tthis.gameplay = {};",
+                "*\t\tthis.session = null;",
+                "*\t\tthis.client = null;",
+                "*\t\tthis.connect = null;",
+                "*\t\tthis.debugMode = false;",
+                "*\t\tthis.multiplayer = false;",
+                "*\t\tthis.matchInitialized = false;",
+                "*\t\tthis.realms = ['A', 'E', 'G', 'L', 'P', 'S', 'W'];",
+                "*\t\tthis.availableMusic = [];",
+                "*\t\tthis.soundEffects = [",
+                "*\t\t\t'sounds/step',",
+                "*\t\t\t'sounds/swing',",
+                "*\t\t\t'sounds/swing2',",
+                "*\t\t\t'sounds/swing3',",
+                "*\t\t\t'sounds/heartbeat',",
+                "*\t\t\t'sounds/drums',",
+                "*\t\t\t'sounds/upgrade',",
+                "*\t\t];",
+                "*\t\tthis.inputMethod = 'Mouse';",
+                " ",
+                " \t\t// Gameplay properties",
+                " \t\tthis.firstKill = false;"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [
+                "The starting point for the game class is where we create the Phaser instance",
+                "If you are not familiar with Phaser game engine please read more [here](https://phaser.io/)"
+            ],
+            "firstLineNumber": 110,
+            "lines": [
+                "*\t\tthis.Phaser = new Phaser.Game(1920, 1080, Phaser.AUTO, 'combatwrapper', {",
+                "*\t\t\tupdate: this.phaserUpdate.bind(this),",
+                "*\t\t\trender: this.phaserRender.bind(this),"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Understanding the game mechanics will allow you to better debug and improve the game loop and logic flows"
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

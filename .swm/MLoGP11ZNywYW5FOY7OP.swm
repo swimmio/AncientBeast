@@ -1,47 +1,49 @@
 {
     "id": "MLoGP11ZNywYW5FOY7OP",
     "name": "Displaying the menu",
-    "dod": "",
-    "description": "",
-    "summary": "",
-    "hunksOrder": [
-        "src/index.ejs_0"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/index.ejs": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/index.ejs b/src/index.ejs\nindex 44d7c54c..44d7c54c 100644\n--- a/src/index.ejs\n+++ b/src/index.ejs",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -69,15 +69,6 @@",
-                        " \t\t\t\t\t\t\t\t</div>",
-                        " \t\t\t\t\t\t\t</div>",
-                        " \t\t\t\t\t\t</div>",
-                        "-\t\t\t\t\t\t<form id=\"gameSetup\">",
-                        "-\t\t\t\t\t\t\t<div class=\"game-options border-frame\">",
-                        "-\t\t\t\t\t\t\t\t<div class=\"gameOption\">",
-                        "-\t\t\t\t\t\t\t\t\t<h2>Player Mode [ Hotseat ]</h2>",
-                        "-\t\t\t\t\t\t\t\t\t<div id=\"playerMode\" class=\"typeRadio\">",
-                        "-\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"p2\" name=\"playerMode\" value=\"2\" checked><label for=\"p2\">1 versus 1</label>",
-                        "-\t\t\t\t\t\t\t\t\t\t<label for=\"p4\">2 versus 2</label>",
-                        "-\t\t\t\t\t\t\t\t\t</div>",
-                        "-\t\t\t\t\t\t\t\t</div>",
-                        " \t\t\t\t\t\t\t\t<div class=\"gameOption\">",
-                        " \t\t\t\t\t\t\t\t\t<h2>Active Units [ Psyhelm limit ]</h2>",
-                        " \t\t\t\t\t\t\t\t\t<div id=\"activeUnits\" class=\"typeRadio\">"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/index.ejs": "44d7c54cbd781a94dfa68d24cee2b019ce184267"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "dddddc50ab1258b48aecaad0164603f01ce27f7a"
+    "content": [
+        {
+            "type": "text",
+            "text": ""
+        },
+        {
+            "type": "snippet",
+            "path": "src/index.ejs",
+            "comments": [],
+            "firstLineNumber": 69,
+            "lines": [
+                " \t\t\t\t\t\t\t\t</div>",
+                " \t\t\t\t\t\t\t</div>",
+                " \t\t\t\t\t\t</div>",
+                "*\t\t\t\t\t\t<form id=\"gameSetup\">",
+                "*\t\t\t\t\t\t\t<div class=\"game-options border-frame\">",
+                "*\t\t\t\t\t\t\t\t<div class=\"gameOption\">",
+                "*\t\t\t\t\t\t\t\t\t<h2>Player Mode [ Hotseat ]</h2>",
+                "*\t\t\t\t\t\t\t\t\t<div id=\"playerMode\" class=\"typeRadio\">",
+                "*\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"p2\" name=\"playerMode\" value=\"2\" checked><label for=\"p2\">1 versus 1</label>",
+                "*\t\t\t\t\t\t\t\t\t\t<label for=\"p4\">2 versus 2</label>",
+                "*\t\t\t\t\t\t\t\t\t</div>",
+                "*\t\t\t\t\t\t\t\t</div>",
+                " \t\t\t\t\t\t\t\t<div class=\"gameOption\">",
+                " \t\t\t\t\t\t\t\t\t<h2>Active Units [ Psyhelm limit ]</h2>",
+                " \t\t\t\t\t\t\t\t\t<div id=\"activeUnits\" class=\"typeRadio\">"
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

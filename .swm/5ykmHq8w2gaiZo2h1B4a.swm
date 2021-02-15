@@ -1,74 +1,70 @@
 {
     "id": "5ykmHq8w2gaiZo2h1B4a",
     "name": "Why we are using assets listener",
-    "dod": "",
-    "description": "The assets listener is used to convert the assets folder into a js object for easier manipulation from the game.\nIf you receive errors about the manifest or assets loading, try running `npm run assetLister` to create a list for the app.\n",
-    "summary": "",
-    "hunksOrder": [
-        "assetLister.js_0",
-        "package.json_0"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "assetLister.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/assetLister.js b/assetLister.js\nindex d35e9141..d35e9141 100644\n--- a/assetLister.js\n+++ b/assetLister.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The function that is actually being called id `readDirectory` that as you can see generates the assets.js file"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -110,16 +110,3 @@",
-                        " \treturn `{id: \"${fileEntity.name}\", url: require(\"assets/${fileEntity.url}\") }`;",
-                        " }",
-                        " ",
-                        "-readDirectory(path.join(__dirname, 'assets'))",
-                        "-\t// Generate the JavaScript",
-                        "-\t.then((result) => `export default ${writeToString(result, true)}`)",
-                        "-\t// Add path fix for Windows",
-                        "-\t.then((result) => result.replace(/\\\\/g, '\\\\\\\\'))",
-                        "-\t// Format the JavaScript so that it's readable",
-                        "-\t.then((result) => {",
-                        "-\t\treturn prettier.format(result, { parser: 'babel' });",
-                        "-\t})",
-                        "-\t// We only need to write one file so it doesn't matter that it's sync",
-                        "-\t.then((result) => fs.writeFileSync(path.resolve(__dirname, 'src', 'assets.js'), result)) // eslint-disable-line no-sync",
-                        "-\t.then((_) => console.log('Asset lister completed'))",
-                        "-\t.catch((err) => console.error(`Asset lister failed: ${err.toString()}`));"
-                    ]
-                }
-            ]
-        },
-        "package.json": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/package.json b/package.json\nindex 9c820197..9c820197 100644\n--- a/package.json\n+++ b/package.json",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "This is the command that uses this service"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -69,7 +69,6 @@",
-                        " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",",
-                        " \t\t\"start\": \"cross-env NODE_ENV=production node server.js\",",
-                        " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",",
-                        "-\t\t\"assetLister\": \"node ./assetLister.js\",",
-                        " \t\t\"lint\": \"eslint src/*.js src/**/*.js\",",
-                        " \t\t\"lint-fix\": \"eslint --fix src/*.js src/**/*.js\",",
-                        " \t\t\"eslint-check\": \"eslint --print-config .eslintrc.json | eslint-config-prettier-check\","
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "assetLister.js": "d35e9141917c004c7090035370447de11cf1987c",
+            "package.json": "9c820197548b8ed95b3524476a10cef198a45a1c"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "a56dd16f31d9f651a78674d18404a7e6d1e9136b"
+    "content": [
+        {
+            "type": "text",
+            "text": "The assets listener is used to convert the assets folder into a js object for easier manipulation from the game.\nIf you receive errors about the manifest or assets loading, try running `npm run assetLister` to create a list for the app.\n"
+        },
+        {
+            "type": "snippet",
+            "path": "assetLister.js",
+            "comments": [
+                "The function that is actually being called id `readDirectory` that as you can see generates the assets.js file"
+            ],
+            "firstLineNumber": 110,
+            "lines": [
+                " \treturn `{id: \"${fileEntity.name}\", url: require(\"assets/${fileEntity.url}\") }`;",
+                " }",
+                " ",
+                "*readDirectory(path.join(__dirname, 'assets'))",
+                "*\t// Generate the JavaScript",
+                "*\t.then((result) => `export default ${writeToString(result, true)}`)",
+                "*\t// Add path fix for Windows",
+                "*\t.then((result) => result.replace(/\\\\/g, '\\\\\\\\'))",
+                "*\t// Format the JavaScript so that it's readable",
+                "*\t.then((result) => {",
+                "*\t\treturn prettier.format(result, { parser: 'babel' });",
+                "*\t})",
+                "*\t// We only need to write one file so it doesn't matter that it's sync",
+                "*\t.then((result) => fs.writeFileSync(path.resolve(__dirname, 'src', 'assets.js'), result)) // eslint-disable-line no-sync",
+                "*\t.then((_) => console.log('Asset lister completed'))",
+                "*\t.catch((err) => console.error(`Asset lister failed: ${err.toString()}`));"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "package.json",
+            "comments": [
+                "This is the command that uses this service"
+            ],
+            "firstLineNumber": 69,
+            "lines": [
+                " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",",
+                " \t\t\"start\": \"cross-env NODE_ENV=production node server.js\",",
+                " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",",
+                "*\t\t\"assetLister\": \"node ./assetLister.js\",",
+                " \t\t\"lint\": \"eslint src/*.js src/**/*.js\",",
+                " \t\t\"lint-fix\": \"eslint --fix src/*.js src/**/*.js\",",
+                " \t\t\"eslint-check\": \"eslint --print-config .eslintrc.json | eslint-config-prettier-check\","
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

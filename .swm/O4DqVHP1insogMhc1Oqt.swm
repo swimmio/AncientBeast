@@ -1,155 +1,152 @@
 {
     "id": "O4DqVHP1insogMhc1Oqt",
     "name": "Game class in multiplayer mode",
-    "dod": "",
-    "description": "",
-    "summary": "",
-    "hunksOrder": [
-        "src/game.js_0",
-        "src/game.js_1",
-        "src/game.js_2",
-        "src/game.js_3",
-        "src/game.js_4",
-        "src/game.js_5"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/game.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/game.js b/src/game.js\nindex 9e1b4753..9e1b4753 100644\n--- a/src/game.js\n+++ b/src/game.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -14,8 +14,6 @@",
-                        " import 'pixi';",
-                        " import 'p2';",
-                        " import Phaser from 'phaser';",
-                        "-import MatchI from './multiplayer/match';",
-                        "-import Gameplay from './multiplayer/gameplay';",
-                        " ",
-                        " /* Game Class",
-                        "  *"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -85,7 +83,6 @@",
-                        " \t\tthis.client = null;",
-                        " \t\tthis.connect = null;",
-                        " \t\tthis.debugMode = false;",
-                        "-\t\tthis.multiplayer = false;",
-                        " \t\tthis.matchInitialized = false;",
-                        " \t\tthis.realms = ['A', 'E', 'G', 'L', 'P', 'S', 'W'];",
-                        " \t\tthis.availableMusic = [];"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -241,10 +238,6 @@",
-                        " \t * Load all required game files",
-                        " \t */",
-                        " ",
-                        "-\tloadGame(setupOpt, matchInitialized, matchid) {",
-                        "-\t\tif (this.multiplayer && !matchid) {",
-                        "-\t\t\tthis.matchInitialized = matchInitialized;",
-                        "-\t\t}",
-                        " \t\tif (matchid) {",
-                        " \t\t\tthis.matchid = matchid;",
-                        " \t\t}"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -554,31 +547,6 @@",
-                        " ",
-                        " \t\tthis.matchInit();",
-                        " \t}",
-                        "-\tasync matchInit() {",
-                        "-\t\tif (this.multiplayer) {",
-                        "-\t\t\tif (Object.keys(this.match).length === 0) {",
-                        "-\t\t\t\tawait this.connect.serverConnect(this.session);",
-                        "-\t\t\t\tlet match = new MatchI(this.connect, this, this.session);",
-                        "-\t\t\t\tlet gameplay = new Gameplay(this, match);",
-                        "-\t\t\t\tmatch.gameplay = gameplay;",
-                        "-\t\t\t\tthis.gameplay = gameplay;",
-                        "-\t\t\t\tthis.match = match;",
-                        "-",
-                        "-\t\t\t\t// Only host",
-                        "-\t\t\t\tif (this.matchInitialized) {",
-                        "-\t\t\t\t\tlet n = await this.match.matchCreate();",
-                        "-",
-                        "-\t\t\t\t\tconsole.log('created match', n);",
-                        "-\t\t\t\t\tawait match.matchMaker(n, this.configData);",
-                        "-\t\t\t\t}",
-                        "-\t\t\t}",
-                        "-\t\t\t// Non-host",
-                        "-\t\t\tif (this.matchid) {",
-                        "-\t\t\t\tlet n = await this.match.matchJoin(this.matchid);",
-                        "-\t\t\t\tconsole.log('joined match', n);",
-                        "-\t\t\t}",
-                        "-\t\t}",
-                        "-\t}",
-                        " \tasync matchJoin() {",
-                        " \t\tawait this.matchInit();",
-                        " \t\tawait this.match.matchMaker();"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -730,11 +698,6 @@",
-                        " \t\t\t\t// Updates UI to match new creature",
-                        " \t\t\t\tthis.UI.updateActivebox();",
-                        " \t\t\t\tthis.updateQueueDisplay();",
-                        "-\t\t\t\tif (this.multiplayer && this.playersReady) {",
-                        "-\t\t\t\t\tthis.gameplay.updateTurn();",
-                        "-\t\t\t\t} else {",
-                        "-\t\t\t\t\tthis.playersReady = true;",
-                        "-\t\t\t\t}",
-                        " \t\t\t}, 50);",
-                        " \t\t}, 300);",
-                        " \t}"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -860,11 +823,6 @@",
-                        " \t *",
-                        " \t * Delay the action turn of the current creature",
-                        " \t */",
-                        "-\tdelayCreature(o) {",
-                        "-\t\t// Send skip turn to server",
-                        "-\t\tif (this.multiplayer) {",
-                        "-\t\t\tthis.gameplay.delay();",
-                        "-\t\t}",
-                        " ",
-                        " \t\tif (this.turnThrottle) {",
-                        " \t\t\treturn;"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/game.js": "9e1b4753a1f17ba5b5e1a85db8c0db2ff994adce"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "448b4b859a568600c2fc76305ed22a321b0631ed"
+    "content": [
+        {
+            "type": "text",
+            "text": ""
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 14,
+            "lines": [
+                " import 'pixi';",
+                " import 'p2';",
+                " import Phaser from 'phaser';",
+                "*import MatchI from './multiplayer/match';",
+                "*import Gameplay from './multiplayer/gameplay';",
+                " ",
+                " /* Game Class",
+                "  *"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 85,
+            "lines": [
+                " \t\tthis.client = null;",
+                " \t\tthis.connect = null;",
+                " \t\tthis.debugMode = false;",
+                "*\t\tthis.multiplayer = false;",
+                " \t\tthis.matchInitialized = false;",
+                " \t\tthis.realms = ['A', 'E', 'G', 'L', 'P', 'S', 'W'];",
+                " \t\tthis.availableMusic = [];"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 241,
+            "lines": [
+                " \t * Load all required game files",
+                " \t */",
+                " ",
+                "*\tloadGame(setupOpt, matchInitialized, matchid) {",
+                "*\t\tif (this.multiplayer && !matchid) {",
+                "*\t\t\tthis.matchInitialized = matchInitialized;",
+                "*\t\t}",
+                " \t\tif (matchid) {",
+                " \t\t\tthis.matchid = matchid;",
+                " \t\t}"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 554,
+            "lines": [
+                " ",
+                " \t\tthis.matchInit();",
+                " \t}",
+                "*\tasync matchInit() {",
+                "*\t\tif (this.multiplayer) {",
+                "*\t\t\tif (Object.keys(this.match).length === 0) {",
+                "*\t\t\t\tawait this.connect.serverConnect(this.session);",
+                "*\t\t\t\tlet match = new MatchI(this.connect, this, this.session);",
+                "*\t\t\t\tlet gameplay = new Gameplay(this, match);",
+                "*\t\t\t\tmatch.gameplay = gameplay;",
+                "*\t\t\t\tthis.gameplay = gameplay;",
+                "*\t\t\t\tthis.match = match;",
+                "*",
+                "*\t\t\t\t// Only host",
+                "*\t\t\t\tif (this.matchInitialized) {",
+                "*\t\t\t\t\tlet n = await this.match.matchCreate();",
+                "*",
+                "*\t\t\t\t\tconsole.log('created match', n);",
+                "*\t\t\t\t\tawait match.matchMaker(n, this.configData);",
+                "*\t\t\t\t}",
+                "*\t\t\t}",
+                "*\t\t\t// Non-host",
+                "*\t\t\tif (this.matchid) {",
+                "*\t\t\t\tlet n = await this.match.matchJoin(this.matchid);",
+                "*\t\t\t\tconsole.log('joined match', n);",
+                "*\t\t\t}",
+                "*\t\t}",
+                "*\t}",
+                " \tasync matchJoin() {",
+                " \t\tawait this.matchInit();",
+                " \t\tawait this.match.matchMaker();"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 730,
+            "lines": [
+                " \t\t\t\t// Updates UI to match new creature",
+                " \t\t\t\tthis.UI.updateActivebox();",
+                " \t\t\t\tthis.updateQueueDisplay();",
+                "*\t\t\t\tif (this.multiplayer && this.playersReady) {",
+                "*\t\t\t\t\tthis.gameplay.updateTurn();",
+                "*\t\t\t\t} else {",
+                "*\t\t\t\t\tthis.playersReady = true;",
+                "*\t\t\t\t}",
+                " \t\t\t}, 50);",
+                " \t\t}, 300);",
+                " \t}"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/game.js",
+            "comments": [],
+            "firstLineNumber": 860,
+            "lines": [
+                " \t *",
+                " \t * Delay the action turn of the current creature",
+                " \t */",
+                "*\tdelayCreature(o) {",
+                "*\t\t// Send skip turn to server",
+                "*\t\tif (this.multiplayer) {",
+                "*\t\t\tthis.gameplay.delay();",
+                "*\t\t}",
+                " ",
+                " \t\tif (this.turnThrottle) {",
+                " \t\t\treturn;"
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

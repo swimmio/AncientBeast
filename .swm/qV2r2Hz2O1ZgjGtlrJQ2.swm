@@ -1,120 +1,119 @@
 {
     "id": "qV2r2Hz2O1ZgjGtlrJQ2",
     "name": "Abilities and multiplayer",
-    "dod": "",
-    "description": "There are several place in which the multiplayer feature affect abilities implementation",
-    "summary": "",
-    "hunksOrder": [
-        "src/ability.js_0",
-        "src/ability.js_1",
-        "src/ability.js_2",
-        "src/ability.js_3"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/ability.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/ability.js b/src/ability.js\nindex 93818558..93818558 100644\n--- a/src/ability.js\n+++ b/src/ability.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -218,17 +218,6 @@",
-                        " \t\t\t\t\tid: this.id,",
-                        " \t\t\t\t\targs: args,",
-                        " \t\t\t\t});",
-                        "-\t\t\t\tif (game.multiplayer) {",
-                        "-\t\t\t\t\tgame.gameplay.useAbility({",
-                        "-\t\t\t\t\t\ttarget: {",
-                        "-\t\t\t\t\t\t\ttype: 'hex',",
-                        "-\t\t\t\t\t\t\tx: arguments[0].x,",
-                        "-\t\t\t\t\t\t\ty: arguments[0].y,",
-                        "-\t\t\t\t\t\t},",
-                        "-\t\t\t\t\t\tid: this.id,",
-                        "-\t\t\t\t\t\targs: args,",
-                        "-\t\t\t\t\t});",
-                        "-\t\t\t\t}",
-                        " \t\t\t}",
-                        " ",
-                        " \t\t\tif (arguments[0] instanceof Creature) {"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -243,16 +232,6 @@",
-                        " \t\t\t\t\tid: this.id,",
-                        " \t\t\t\t\targs: args,",
-                        " \t\t\t\t});",
-                        "-\t\t\t\tif (game.multiplayer) {",
-                        "-\t\t\t\t\tgame.gameplay.useAbility({",
-                        "-\t\t\t\t\t\ttarget: {",
-                        "-\t\t\t\t\t\t\ttype: 'creature',",
-                        "-\t\t\t\t\t\t\tcrea: arguments[0].id,",
-                        "-\t\t\t\t\t\t},",
-                        "-\t\t\t\t\t\tid: this.id,",
-                        "-\t\t\t\t\t\targs: args,",
-                        "-\t\t\t\t\t});",
-                        "-\t\t\t\t}",
-                        " \t\t\t}",
-                        " ",
-                        " \t\t\tif (arguments[0] instanceof Array) {"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -270,16 +249,6 @@",
-                        " \t\t\t\t\tid: this.id,",
-                        " \t\t\t\t\targs: args,",
-                        " \t\t\t\t});",
-                        "-\t\t\t\tif (game.multiplayer) {",
-                        "-\t\t\t\t\tgame.gameplay.useAbility({",
-                        "-\t\t\t\t\t\ttarget: {",
-                        "-\t\t\t\t\t\t\ttype: 'array',",
-                        "-\t\t\t\t\t\t\tarray: array,",
-                        "-\t\t\t\t\t\t},",
-                        "-\t\t\t\t\t\tid: this.id,",
-                        "-\t\t\t\t\t\targs: args,",
-                        "-\t\t\t\t\t});",
-                        "-\t\t\t\t}",
-                        " \t\t\t}",
-                        " \t\t} else {",
-                        " \t\t\t// Test for materialization sickness"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -366,12 +335,6 @@",
-                        " \t\t\tsetTimeout(() => {",
-                        " \t\t\t\tlet queue = game.animationQueue.filter((item) => item != animId);",
-                        " ",
-                        "-\t\t\t\tif (queue.length === 0) {",
-                        "-\t\t\t\t\tgame.freezedInput = false;",
-                        "-\t\t\t\t\tif (game.multiplayer) {",
-                        "-\t\t\t\t\t\tgame.freezedInput = game.UI.active ? false : true;",
-                        "-\t\t\t\t\t}",
-                        "-\t\t\t\t}",
-                        " ",
-                        " \t\t\t\tgame.animationQueue = queue;",
-                        " \t\t\t}, animationData.duration);"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/ability.js": "93818558b7f48ab93b50cf389296160521d958a5"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "b5184eea8d470b7861a0ddba8bc1451f8fc83585"
+    "content": [
+        {
+            "type": "text",
+            "text": "There are several place in which the multiplayer feature affect abilities implementation"
+        },
+        {
+            "type": "snippet",
+            "path": "src/ability.js",
+            "comments": [],
+            "firstLineNumber": 218,
+            "lines": [
+                " \t\t\t\t\tid: this.id,",
+                " \t\t\t\t\targs: args,",
+                " \t\t\t\t});",
+                "*\t\t\t\tif (game.multiplayer) {",
+                "*\t\t\t\t\tgame.gameplay.useAbility({",
+                "*\t\t\t\t\t\ttarget: {",
+                "*\t\t\t\t\t\t\ttype: 'hex',",
+                "*\t\t\t\t\t\t\tx: arguments[0].x,",
+                "*\t\t\t\t\t\t\ty: arguments[0].y,",
+                "*\t\t\t\t\t\t},",
+                "*\t\t\t\t\t\tid: this.id,",
+                "*\t\t\t\t\t\targs: args,",
+                "*\t\t\t\t\t});",
+                "*\t\t\t\t}",
+                " \t\t\t}",
+                " ",
+                " \t\t\tif (arguments[0] instanceof Creature) {"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/ability.js",
+            "comments": [],
+            "firstLineNumber": 243,
+            "lines": [
+                " \t\t\t\t\tid: this.id,",
+                " \t\t\t\t\targs: args,",
+                " \t\t\t\t});",
+                "*\t\t\t\tif (game.multiplayer) {",
+                "*\t\t\t\t\tgame.gameplay.useAbility({",
+                "*\t\t\t\t\t\ttarget: {",
+                "*\t\t\t\t\t\t\ttype: 'creature',",
+                "*\t\t\t\t\t\t\tcrea: arguments[0].id,",
+                "*\t\t\t\t\t\t},",
+                "*\t\t\t\t\t\tid: this.id,",
+                "*\t\t\t\t\t\targs: args,",
+                "*\t\t\t\t\t});",
+                "*\t\t\t\t}",
+                " \t\t\t}",
+                " ",
+                " \t\t\tif (arguments[0] instanceof Array) {"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/ability.js",
+            "comments": [],
+            "firstLineNumber": 270,
+            "lines": [
+                " \t\t\t\t\tid: this.id,",
+                " \t\t\t\t\targs: args,",
+                " \t\t\t\t});",
+                "*\t\t\t\tif (game.multiplayer) {",
+                "*\t\t\t\t\tgame.gameplay.useAbility({",
+                "*\t\t\t\t\t\ttarget: {",
+                "*\t\t\t\t\t\t\ttype: 'array',",
+                "*\t\t\t\t\t\t\tarray: array,",
+                "*\t\t\t\t\t\t},",
+                "*\t\t\t\t\t\tid: this.id,",
+                "*\t\t\t\t\t\targs: args,",
+                "*\t\t\t\t\t});",
+                "*\t\t\t\t}",
+                " \t\t\t}",
+                " \t\t} else {",
+                " \t\t\t// Test for materialization sickness"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/ability.js",
+            "comments": [],
+            "firstLineNumber": 366,
+            "lines": [
+                " \t\t\tsetTimeout(() => {",
+                " \t\t\t\tlet queue = game.animationQueue.filter((item) => item != animId);",
+                " ",
+                "*\t\t\t\tif (queue.length === 0) {",
+                "*\t\t\t\t\tgame.freezedInput = false;",
+                "*\t\t\t\t\tif (game.multiplayer) {",
+                "*\t\t\t\t\t\tgame.freezedInput = game.UI.active ? false : true;",
+                "*\t\t\t\t\t}",
+                "*\t\t\t\t}",
+                " ",
+                " \t\t\t\tgame.animationQueue = queue;",
+                " \t\t\t}, animationData.duration);"
+            ]
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }

@@ -1,98 +1,98 @@
 {
     "id": "sPvnKtKBvRJAZx6lqAKf",
     "name": "The player class",
-    "dod": "",
-    "description": "In Ancient Beast we support up to 4 players.\nThe player class represents each one of them, their avatar, score and more\n\n![Dark Priest blue.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F7602c18c-6edd-475f-b75d-feaccbc9ddcd.png?alt=media&token=25744f0d-dccb-4f17-8b02-b51641b360dc)![Dark Priest gold.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2Fc0d1d94b-3323-47fd-bf26-bd5161b2f92d.png?alt=media&token=3a434885-c9b3-4d1f-9937-906667d6df10)![Dark Priest green.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F4e9f5531-58a9-46ca-a2b0-7aacb7ef9e5b.png?alt=media&token=7a33d881-0467-4cbb-8804-957907966e1b)![Dark Priest red.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F28ce4e07-e5f1-4c91-a46d-b632cfa6744f.png?alt=media&token=1c7d5ff6-78bb-409a-80bd-434c84e1443c)",
-    "summary": "The player class is an important class to understand and it has some important relations to other classes in the project",
-    "hunksOrder": [
-        "src/player.js_0",
-        "src/player.js_1",
-        "src/player.js_2"
-    ],
-    "tests": [],
-    "hints": [],
-    "play_mode": "walkthrough",
-    "swimmPatch": {
-        "src/player.js": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/player.js b/src/player.js\nindex d0de42f6..d0de42f6 100644\n--- a/src/player.js\n+++ b/src/player.js",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "Each player has it's own creatures"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -53,7 +53,6 @@",
-                        " \t}",
-                        " ",
-                        " \t// TODO: Is this even right? it should be off by 1 based on this code...",
-                        "-\tgetNbrOfCreatures() {",
-                        " \t\tlet nbr = -1,",
-                        " \t\t\tcreatures = this.creatures,",
-                        " \t\t\tcount = creatures.length,"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "The player can summon creatures by creating a new Creature instance and adding it to it's creatures array"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -93,10 +92,6 @@",
-                        " \t\t\t}",
-                        " \t\t}",
-                        " ",
-                        "-\t\tcreature = new Creature(data, game);",
-                        "-\t\tthis.creatures.push(creature);",
-                        "-\t\tcreature.summon();",
-                        "-\t\tgame.onCreatureSummon(creature);",
-                        " \t}",
-                        " ",
-                        " \t/* flee()"
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": [
-                            "It is interesting to see how the score is being calculated"
-                        ]
-                    },
-                    "hunkDiffLines": [
-                        "@@ -116,25 +111,6 @@",
-                        " \t *",
-                        " \t * Return the total of the score events.",
-                        " \t */",
-                        "-\tgetScore() {",
-                        "-\t\tlet total = this.score.length,",
-                        "-\t\t\ts = {},",
-                        "-\t\t\tpoints,",
-                        "-\t\t\ttotalScore = {",
-                        "-\t\t\t\tfirstKill: 0,",
-                        "-\t\t\t\tkill: 0,",
-                        "-\t\t\t\tdeny: 0,",
-                        "-\t\t\t\thumiliation: 0,",
-                        "-\t\t\t\tannihilation: 0,",
-                        "-\t\t\t\ttimebonus: 0,",
-                        "-\t\t\t\tnofleeing: 0,",
-                        "-\t\t\t\tcreaturebonus: 0,",
-                        "-\t\t\t\tdarkpriestbonus: 0,",
-                        "-\t\t\t\timmortal: 0,",
-                        "-\t\t\t\ttotal: 0,",
-                        "-\t\t\t\tpickupDrop: 0,",
-                        "-\t\t\t\tupgrade: 0,",
-                        "-\t\t\t};",
-                        " ",
-                        " \t\tfor (let i = 0; i < total; i++) {",
-                        " \t\t\ts = this.score[i];"
-                    ]
-                }
-            ]
+    "file_version": "2.0.0",
+    "meta": {
+        "app_version": "0.3.7-0",
+        "file_blobs": {
+            "src/player.js": "d0de42f6052c598431028ade884055e43de8a41f"
         }
     },
-    "app_version": "0.3.6-2",
-    "file_version": "1.0.4",
-    "last_commit_sha_for_swimm_patch": "24504acf418de77c46c00493c7e7e94be46c5f12"
+    "content": [
+        {
+            "type": "text",
+            "text": "In Ancient Beast we support up to 4 players.\nThe player class represents each one of them, their avatar, score and more\n\n![Dark Priest blue.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F7602c18c-6edd-475f-b75d-feaccbc9ddcd.png?alt=media&token=25744f0d-dccb-4f17-8b02-b51641b360dc)![Dark Priest gold.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2Fc0d1d94b-3323-47fd-bf26-bd5161b2f92d.png?alt=media&token=3a434885-c9b3-4d1f-9937-906667d6df10)![Dark Priest green.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F4e9f5531-58a9-46ca-a2b0-7aacb7ef9e5b.png?alt=media&token=7a33d881-0467-4cbb-8804-957907966e1b)![Dark Priest red.png](https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2Fnq28y23sq0ibpxdn1JJT%2Fimg%2F28ce4e07-e5f1-4c91-a46d-b632cfa6744f.png?alt=media&token=1c7d5ff6-78bb-409a-80bd-434c84e1443c)"
+        },
+        {
+            "type": "snippet",
+            "path": "src/player.js",
+            "comments": [
+                "Each player has it's own creatures"
+            ],
+            "firstLineNumber": 53,
+            "lines": [
+                " \t}",
+                " ",
+                " \t// TODO: Is this even right? it should be off by 1 based on this code...",
+                "*\tgetNbrOfCreatures() {",
+                " \t\tlet nbr = -1,",
+                " \t\t\tcreatures = this.creatures,",
+                " \t\t\tcount = creatures.length,"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/player.js",
+            "comments": [
+                "The player can summon creatures by creating a new Creature instance and adding it to it's creatures array"
+            ],
+            "firstLineNumber": 93,
+            "lines": [
+                " \t\t\t}",
+                " \t\t}",
+                " ",
+                "*\t\tcreature = new Creature(data, game);",
+                "*\t\tthis.creatures.push(creature);",
+                "*\t\tcreature.summon();",
+                "*\t\tgame.onCreatureSummon(creature);",
+                " \t}",
+                " ",
+                " \t/* flee()"
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/player.js",
+            "comments": [
+                "It is interesting to see how the score is being calculated"
+            ],
+            "firstLineNumber": 116,
+            "lines": [
+                " \t *",
+                " \t * Return the total of the score events.",
+                " \t */",
+                "*\tgetScore() {",
+                "*\t\tlet total = this.score.length,",
+                "*\t\t\ts = {},",
+                "*\t\t\tpoints,",
+                "*\t\t\ttotalScore = {",
+                "*\t\t\t\tfirstKill: 0,",
+                "*\t\t\t\tkill: 0,",
+                "*\t\t\t\tdeny: 0,",
+                "*\t\t\t\thumiliation: 0,",
+                "*\t\t\t\tannihilation: 0,",
+                "*\t\t\t\ttimebonus: 0,",
+                "*\t\t\t\tnofleeing: 0,",
+                "*\t\t\t\tcreaturebonus: 0,",
+                "*\t\t\t\tdarkpriestbonus: 0,",
+                "*\t\t\t\timmortal: 0,",
+                "*\t\t\t\ttotal: 0,",
+                "*\t\t\t\tpickupDrop: 0,",
+                "*\t\t\t\tupgrade: 0,",
+                "*\t\t\t};",
+                " ",
+                " \t\tfor (let i = 0; i < total; i++) {",
+                " \t\t\ts = this.score[i];"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "The player class is an important class to understand and it has some important relations to other classes in the project"
+        }
+    ],
+    "task": {
+        "dod": "",
+        "hints": [],
+        "tests": []
+    }
 }
