@@ -140,17 +140,12 @@ $j(document).ready(() => {
 
 
 
-		
+
 		if (reg.password != reg.passwordmatch) {
 			$j('.error-pw').show();
 			return;
 		}
-		let auth = new Authenticate(reg, connect.client, rrr);
-		let session = await auth.register();
-		let sess = new SessionI(session);
-		sess.storeSession();
-		G.session = session;
-		G.client = connect.client;
+		let auth = new Auth();
 		G.multiplayer = true;
 		$j('.setupFrame,.welcome').show();
 		$j('.match-frame').show();
