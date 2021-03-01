@@ -136,11 +136,16 @@ $j(document).ready(() => {
 			// 'element' is hidden
 			$j('.error-pw').hide();
 		}
+
+
+
+
+		
 		if (reg.password != reg.passwordmatch) {
 			$j('.error-pw').show();
 			return;
 		}
-		let auth = new Authenticate(reg, connect.client);
+		let auth = new Authenticate(reg, connect.client, rrr);
 		let session = await auth.register();
 		let sess = new SessionI(session);
 		sess.storeSession();
