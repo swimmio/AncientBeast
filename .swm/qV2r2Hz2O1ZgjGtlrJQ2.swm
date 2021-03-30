@@ -1,12 +1,10 @@
 {
     "id": "qV2r2Hz2O1ZgjGtlrJQ2",
     "name": "Abilities and multiplayer",
-    "file_version": "2.0.0",
-    "meta": {
-        "app_version": "0.3.7-0",
-        "file_blobs": {
-            "src/ability.js": "93818558b7f48ab93b50cf389296160521d958a5"
-        }
+    "task": {
+        "dod": "",
+        "tests": [],
+        "hints": []
     },
     "content": [
         {
@@ -16,7 +14,9 @@
         {
             "type": "snippet",
             "path": "src/ability.js",
-            "comments": [],
+            "comments": [
+                "just the main condition to check if multiplayer should kick in"
+            ],
             "firstLineNumber": 218,
             "lines": [
                 " \t\t\t\t\tid: this.id,",
@@ -105,15 +105,14 @@
                 " \t\t\t\tgame.animationQueue = queue;",
                 " \t\t\t}, animationData.duration);"
             ]
-        },
-        {
-            "type": "text",
-            "text": ""
         }
     ],
-    "task": {
-        "dod": "",
-        "hints": [],
-        "tests": []
+    "symbols": {},
+    "file_version": "2.0.1",
+    "meta": {
+        "app_version": "0.4.0-3",
+        "file_blobs": {
+            "src/ability.js": "93818558b7f48ab93b50cf389296160521d958a5"
+        }
     }
 }
