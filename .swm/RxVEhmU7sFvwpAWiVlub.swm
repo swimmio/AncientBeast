@@ -1,16 +1,10 @@
 {
     "id": "RxVEhmU7sFvwpAWiVlub",
     "name": "How the game is being served",
-    "file_version": "2.0.0",
-    "meta": {
-        "app_version": "0.3.7-0",
-        "file_blobs": {
-            "package.json": "9c820197548b8ed95b3524476a10cef198a45a1c",
-            "server.js": "f6f9df1a9ecd0fe16ebb4b8a08f560dec070ace6",
-            "webpack.config.js": "1686448119f6c825631cf9634465f386732c6a1b",
-            "src/index.ejs": "44d7c54cbd781a94dfa68d24cee2b019ce184267",
-            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec"
-        }
+    "task": {
+        "dod": "",
+        "tests": [],
+        "hints": []
     },
     "content": [
         {
@@ -25,13 +19,13 @@
             ],
             "firstLineNumber": 67,
             "lines": [
-                " \t\"scripts\": {",
-                " \t\t\"build\": \"npm run assetLister && webpack --mode=production\",",
-                " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",",
+                " \t\"scripts\": {\r",
+                " \t\t\"build\": \"npm run assetLister && webpack --mode=production\",\r",
+                " \t\t\"build:dev\": \"npm run assetLister && webpack --mode=development\",\r",
                 "*\t\t\"start\": \"cross-env NODE_ENV=production node server.js\",",
-                " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",",
-                " \t\t\"assetLister\": \"node ./assetLister.js\",",
-                " \t\t\"lint\": \"eslint src/*.js src/**/*.js\","
+                " \t\t\"start:dev\": \"cross-env NODE_ENV=development webpack-dev-server\",\r",
+                " \t\t\"assetLister\": \"node ./assetLister.js\",\r",
+                " \t\t\"lint\": \"eslint src/*.js src/**/*.js\",\r"
             ]
         },
         {
@@ -42,9 +36,9 @@
             ],
             "firstLineNumber": 10,
             "lines": [
-                " // Enable gzip compression",
-                " app.use(compression());",
-                " ",
+                " // Enable gzip compression\r",
+                " app.use(compression());\r",
+                " \r",
                 "*// Assets are hashed so they can be in the cache for longer",
                 "*app.use(",
                 "*\t'/assets/',",
@@ -53,65 +47,65 @@
                 "*\t}),",
                 "*);",
                 "*app.use(express.static(path.join(__dirname, 'deploy')));",
-                " ",
-                " // Listen for server, and use static routing for deploy directory",
-                " app.listen(port, ip, () => {"
+                " \r",
+                " // Listen for server, and use static routing for deploy directory\r",
+                " app.listen(port, ip, () => {\r"
             ]
         },
         {
             "type": "snippet",
             "path": "webpack.config.js",
             "comments": [
-                "The main file we build from is `script.js`"
+                "The main file we build from is [[sym:./src/script.js(6a3a72dd-e848-44f1-aab5-0fb5d24804ce)]]"
             ],
             "firstLineNumber": 14,
             "lines": [
-                " \tconst production = (argv && argv.mode === 'production') || process.env.NODE_ENV === 'production';",
-                " ",
-                " \treturn {",
+                " \tconst production = (argv && argv.mode === 'production') || process.env.NODE_ENV === 'production';\r",
+                " \r",
+                " \treturn {\r",
                 "*\t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
-                " \t\toutput: {",
-                " \t\t\tpath: path.resolve(__dirname, 'deploy'),",
-                " \t\t\tfilename: 'ancientbeast.js',"
+                " \t\toutput: {\r",
+                " \t\t\tpath: path.resolve(__dirname, 'deploy'),\r",
+                " \t\t\tfilename: 'ancientbeast.js',\r"
             ]
         },
         {
             "type": "snippet",
             "path": "webpack.config.js",
             "comments": [
-                "The result of the build is our `ancientbeast.js` file which is being built by Webpack"
+                "The result of the build is our `ancientbeast.js` which is being built by Webpack"
             ],
             "firstLineNumber": 15,
             "lines": [
-                " ",
-                " \treturn {",
-                " \t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],",
+                " \r",
+                " \treturn {\r",
+                " \t\tentry: ['babel-polyfill', path.resolve(__dirname, 'src', 'script.js')],\r",
                 "*\t\toutput: {",
                 "*\t\t\tpath: path.resolve(__dirname, 'deploy'),",
                 "*\t\t\tfilename: 'ancientbeast.js',",
                 "*\t\t\t// chunkFilename: '[id].chunk.js',",
                 "*\t\t\t// publicPath: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/',",
                 "*\t\t},",
-                " \t\tdevtool: production ? 'none' : 'source-map',",
-                " \t\tmodule: {",
-                " \t\t\trules: ["
+                " \t\tdevtool: production ? 'none' : 'source-map',\r",
+                " \t\tmodule: {\r",
+                " \t\t\trules: [\r"
             ]
         },
         {
             "type": "snippet",
             "path": "src/index.ejs",
             "comments": [
-                "We later inject this js to `index.ejs` file"
+                "We later inject this js to [[sym:./src/index.ejs(c313e41d-6cdd-45be-8624-ea270d3fc330)]]"
             ],
             "firstLineNumber": 9,
             "lines": [
-                " \t\t<meta name=\"monetization\" content=\"$pay.stronghold.co/1a15c4d9d46cdd64f9e9094a7c4f04240dc\">",
-                " \t\t<meta name=\"theme-color\" content=\"black\">",
-                " \t\t<link rel=\"manifest\" href=\"manifest.json\">",
+                " \t\t<meta name=\"monetization\" content=\"$pay.stronghold.co/1a15c4d9d46cdd64f9e9094a7c4f04240dc\">\r",
+                " \t\t<meta name=\"theme-color\" content=\"black\">\r",
+                " \t\t<link rel=\"manifest\" href=\"manifest.json\">\r",
                 "*\t\t<title>Ancient Beast 0.4</title>",
-                " \t\t<style>",
-                " \t\t\t.scrim.loading {",
-                " \t\t\topacity: 1;"
+                " \t\t<style>\r",
+                " \t\t\t.scrim.loading {\r",
+                " \t\t\topacity: 1;\r"
             ]
         },
         {
@@ -122,13 +116,13 @@
             ],
             "firstLineNumber": 76,
             "lines": [
-                " \t\t\t\tpatterns: [{ from: 'static' }],",
-                " \t\t\t}),",
-                " \t\t\tnew HtmlWebpackPlugin({",
+                " \t\t\t\tpatterns: [{ from: 'static' }],\r",
+                " \t\t\t}),\r",
+                " \t\t\tnew HtmlWebpackPlugin({\r",
                 "*\t\t\t\ttemplate: path.resolve(__dirname, 'src', 'index.ejs'),",
-                " \t\t\t\tfavicon: path.resolve(__dirname, 'assets', 'favicon.png'),",
-                " \t\t\t\tproduction,",
-                " \t\t\t}),"
+                " \t\t\t\tfavicon: path.resolve(__dirname, 'assets', 'favicon.png'),\r",
+                " \t\t\t\tproduction,\r",
+                " \t\t\t}),\r"
             ]
         },
         {
@@ -139,9 +133,9 @@
             ],
             "firstLineNumber": 12,
             "lines": [
-                " // Load the stylesheet",
-                " import './style/main.less';",
-                " ",
+                " // Load the stylesheet\r",
+                " import './style/main.less';\r",
+                " \r",
                 "*// Generic object we can decorate with helper methods to simply dev and user experience.",
                 "*// TODO: Expose this in a less hacky way.",
                 "*let AB = {};",
@@ -170,17 +164,31 @@
                 "*\t\tgenerator.default(G),",
                 "*\t);",
                 "*});",
-                " "
+                " \r"
             ]
-        },
-        {
-            "type": "text",
-            "text": ""
         }
     ],
-    "task": {
-        "dod": "",
-        "hints": [],
-        "tests": []
+    "symbols": {
+        "6a3a72dd-e848-44f1-aab5-0fb5d24804ce": {
+            "type": "path",
+            "text": "src/script.js",
+            "path": "src/script.js"
+        },
+        "c313e41d-6cdd-45be-8624-ea270d3fc330": {
+            "type": "path",
+            "text": "src/index.ejs",
+            "path": "src/index.ejs"
+        }
+    },
+    "file_version": "2.0.1",
+    "meta": {
+        "app_version": "0.4.3-1",
+        "file_blobs": {
+            "package.json": "9c820197548b8ed95b3524476a10cef198a45a1c",
+            "server.js": "f6f9df1a9ecd0fe16ebb4b8a08f560dec070ace6",
+            "webpack.config.js": "1686448119f6c825631cf9634465f386732c6a1b",
+            "src/index.ejs": "44d7c54cbd781a94dfa68d24cee2b019ce184267",
+            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec"
+        }
     }
 }
