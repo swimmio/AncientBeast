@@ -1,0 +1,47 @@
+{
+    "id": "wUvkjWwt6ksnArHFNx4r",
+    "name": "creatures are on the same team",
+    "task": {
+        "dod": "Implement the \"same team\" case in the `isTeam` function ",
+        "tests": [
+            "npm run test"
+        ],
+        "hints": [
+            "same team means the two creatures are from the same team..."
+        ]
+    },
+    "content": [
+        {
+            "type": "text",
+            "text": "In this exercise we will see the implementation of the function isTeam.  \nThis function is part of our utilities and is being used quite often."
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                " \t\tcase Team.ally:",
+                " \t\t\treturn creature1.team % 2 === creature2.team % 2;",
+                " \t\tcase Team.same:",
+                "*\t\t\treturn creature1.team === creature2.team;",
+                "+\t\t\t",
+                " \t\tcase Team.both:",
+                " \t\t\treturn true;",
+                " \t}"
+            ],
+            "firstLineNumber": 18,
+            "path": "src/utility/team.js",
+            "comments": []
+        },
+        {
+            "type": "text",
+            "text": "We use the `isTeam` function in many places in the app.  \nThis exercise made sure you are aware of the implementation"
+        }
+    ],
+    "symbols": {},
+    "file_version": "2.0.1",
+    "meta": {
+        "app_version": "0.4.4-0",
+        "file_blobs": {
+            "src/utility/team.js": "0f318a11a2eee0a1da583eae6d9994e3134ef87c"
+        }
+    }
+}
