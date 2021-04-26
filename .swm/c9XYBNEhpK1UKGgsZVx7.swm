@@ -1,0 +1,90 @@
+{
+    "id": "c9XYBNEhpK1UKGgsZVx7",
+    "name": "demo ex",
+    "task": {
+        "dod": "make it work",
+        "tests": [
+            "npm run test specific"
+        ],
+        "hints": [
+            "Don't forget to do this"
+        ]
+    },
+    "content": [
+        {
+            "type": "text",
+            "text": ""
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                " \tconstructor(attacker, damages, area, effects, game) {",
+                " \t\tthis.game = game;",
+                " \t\tthis.attacker = attacker;",
+                "*\t\tthis.damages = damages;",
+                "+\t",
+                "*\t\tthis.status = '';",
+                " \t\tthis.effects = effects;",
+                " \t\tthis.area = area;",
+                " \t\t// Whether this is counter-damage"
+            ],
+            "firstLineNumber": 15,
+            "path": "src/damage.js",
+            "comments": [
+                "in this part we...."
+            ]
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                " \t\tthis.availableCreatures = game.availableCreatures;",
+                " \t\tthis.hasLost = false;",
+                " \t\tthis.hasFled = false;",
+                "*\t\tthis.bonusTimePool = 0;",
+                "+",
+                "*\t\tthis.totalTimePool = game.timePool * 1000;",
+                "*\t\tthis.startTime = new Date();",
+                " ",
+                " \t\tthis.score = [",
+                " \t\t\t{"
+            ],
+            "firstLineNumber": 41,
+            "path": "src/player.js",
+            "comments": []
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                "  * @returns {Object} Object found in the array. False if nothing.",
+                "  */",
+                " export function findPos(arr, obj) {",
+                "*\tfor (let i = 0; i < arr.length; i++) {",
+                "+\t",
+                "*\t\tif (arr[i].pos == obj.pos) {",
+                "*\t\t\treturn arr[i];",
+                "*\t\t}",
+                "*\t}",
+                " ",
+                " \treturn false;",
+                " }"
+            ],
+            "firstLineNumber": 9,
+            "path": "src/utility/arrayUtils.js",
+            "comments": []
+        },
+        {
+            "type": "text",
+            "text": ""
+        }
+    ],
+    "symbols": {},
+    "file_version": "2.0.1",
+    "meta": {
+        "app_version": "0.4.4-0",
+        "file_blobs": {
+            "src/damage.js": "e34ca4a437d4f9c1f97aebe328f7100fe5376aa8",
+            "src/player.js": "d0de42f6052c598431028ade884055e43de8a41f",
+            "src/utility/arrayUtils.js": "c8dbfc043d31a9a5eb779c99a852d55da082987b"
+        }
+    }
+}
