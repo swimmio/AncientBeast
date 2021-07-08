@@ -1,0 +1,93 @@
+{
+    "id": "Jk54ykvJeSGpWGo4o7bh",
+    "name": "My Doc",
+    "content": [
+        {
+            "type": "text",
+            "text": "This is my demo doc"
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                " \t\t\t\t}",
+                " \t\t\t\treturn true;",
+                " \t\t\t},",
+                "*\t\t\tactivate(damage, target) {",
+                "*\t\t\t\tif (this.creature.id !== damage.attacker.id) {",
+                "*\t\t\t\t\treturn;",
+                "*\t\t\t\t}",
+                "*",
+                "*\t\t\t\ttarget.addEffect(",
+                "*\t\t\t\t\tnew Effect(",
+                "*\t\t\t\t\t\t'Burning Spirit', // Name",
+                "*\t\t\t\t\t\tthis.creature, // Caster",
+                "*\t\t\t\t\t\ttarget, // Target",
+                "*\t\t\t\t\t\t'', // Trigger",
+                "*\t\t\t\t\t\t{",
+                "*\t\t\t\t\t\t\talterations: {",
+                "*\t\t\t\t\t\t\t\tburn: -1,",
+                " \t\t\t\t\t\t\t},",
+                " \t\t\t\t\t\t}, // Optional arguments",
+                " \t\t\t\t\t\tG,"
+            ],
+            "firstLineNumber": 25,
+            "path": "src/abilities/Abolished.js",
+            "comments": [
+                "in this snippet [[sym-text:damage(7a2374f0-2891-402b-b437-6a5daede9583)]] is the thing and the [[sym:./tests/utils.test.js(18aeb762-e00b-4d41-b8bc-6b7fa1bf7c67)]]"
+            ]
+        },
+        {
+            "type": "snippet",
+            "lines": [
+                " \t\t},",
+                " ",
+                " \t\t// \tSecond Ability: Gummy Mallet",
+                "*\t\t{",
+                "*\t\t\t//\tType : Can be \"onQuery\", \"onStartPhase\", \"onDamage\"",
+                "*\t\t\ttrigger: 'onQuery',",
+                "*",
+                "*\t\t\trequire: function () {",
+                "*\t\t\t\t// Always usable, even if no targets",
+                "*\t\t\t\treturn this.testRequirements();",
+                "*\t\t\t},",
+                "*",
+                "*\t\t\t// \tquery() :",
+                "*\t\t\tquery: function () {",
+                " \t\t\t\tlet ability = this;",
+                " \t\t\t\t// Gummy Mallet can hit a 7-hexagon circular area in 6 directions, where the",
+                " \t\t\t\t// center of each area is two hexes away. Each area can be chosen regardless"
+            ],
+            "firstLineNumber": 64,
+            "path": "src/abilities/Gumble.js",
+            "comments": []
+        }
+    ],
+    "symbols": {
+        "7a2374f0-2891-402b-b437-6a5daede9583": {
+            "symbol": "7a2374f0-2891-402b-b437-6a5daede9583",
+            "path": "src/abilities/Abolished.js",
+            "text": "damage",
+            "lineNumber": 28,
+            "lineData": "\t\t\tactivate(damage, target) {",
+            "wordIndex": {
+                "start": 3,
+                "end": 3
+            },
+            "fileBlob": "0d5fe2e791af8938ae52fbecec01f9fe25f72dce",
+            "type": "generic_text"
+        },
+        "18aeb762-e00b-4d41-b8bc-6b7fa1bf7c67": {
+            "type": "path",
+            "text": "tests/utils.test.js",
+            "path": "tests/utils.test.js"
+        }
+    },
+    "file_version": "2.0.2",
+    "meta": {
+        "app_version": "0.5.0-0",
+        "file_blobs": {
+            "src/abilities/Abolished.js": "0d5fe2e791af8938ae52fbecec01f9fe25f72dce",
+            "src/abilities/Gumble.js": "49977bab05fc2a138e2f937c3f326c157c72d5fc"
+        }
+    }
+}
