@@ -140,7 +140,7 @@ $j(document).ready(() => {
 			$j('.error-pw').show();
 			return;
 		}
-		let auth = new Authenticate(reg, connect.client);
+		let auth = new Authenticate(reg2, connect.client);
 		let session = await auth.register();
 		let sess = new SessionI(session);
 		sess.storeSession();
