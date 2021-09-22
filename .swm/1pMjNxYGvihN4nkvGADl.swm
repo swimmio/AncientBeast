@@ -1,20 +1,15 @@
 {
     "id": "1pMjNxYGvihN4nkvGADl",
     "name": "The multiplayer folder",
-    "file_version": "2.0.0",
-    "meta": {
-        "app_version": "0.3.7-0",
-        "file_blobs": {
-            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec",
-            "src/multiplayer/authenticate.js": "3614dc44b925b1a2cb41f49068d0851c8b201e6a",
-            "src/multiplayer/session.js": "33e50198beb8c8705f0b16dfc3516af130c35212",
-            "src/game.js": "9e1b4753a1f17ba5b5e1a85db8c0db2ff994adce"
-        }
+    "task": {
+        "dod": "",
+        "tests": [],
+        "hints": []
     },
     "content": [
         {
             "type": "text",
-            "text": "The multiplayer folder consists of 5 interesting files\n- `authenticate`\n- `connect`\n- `gameplay`\n- `match`\n- `session`\n\nWe are going to show how the all connect\n\n"
+            "text": "The multiplayer folder consists of 5 interesting files:\n\n*   `authenticate`\n    \n*   `connect`\n    \n*   `gameplay`\n    \n*   `match`\n    \n*   `session`\n    \n\nWe are going to show how the all connect"
         },
         {
             "type": "snippet",
@@ -128,15 +123,17 @@
                 " \t\tawait this.matchInit();",
                 " \t\tawait this.match.matchMaker();"
             ]
-        },
-        {
-            "type": "text",
-            "text": ""
         }
     ],
-    "task": {
-        "dod": "",
-        "hints": [],
-        "tests": []
+    "symbols": {},
+    "file_version": "2.0.3",
+    "meta": {
+        "app_version": "0.5.9-0",
+        "file_blobs": {
+            "src/script.js": "380fbaab40ae7922ebaeeeca20c17c5d9e5f15ec",
+            "src/multiplayer/authenticate.js": "3614dc44b925b1a2cb41f49068d0851c8b201e6a",
+            "src/multiplayer/session.js": "33e50198beb8c8705f0b16dfc3516af130c35212",
+            "src/game.js": "9e1b4753a1f17ba5b5e1a85db8c0db2ff994adce"
+        }
     }
 }
