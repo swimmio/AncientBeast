@@ -9,7 +9,7 @@
     "content": [
         {
             "type": "text",
-            "text": "The multiplayer folder consists of 5 interesting files:\n\n*   `authenticate`\n    \n*   `connect`\n    \n*   `gameplay`\n    \n*   `match`\n    \n*   `session`\n    \n\nWe are going to show how the all connect"
+            "text": "The multiplayer folder consists of 5 interesting files\n\n*   `authenticate`\n    \n*   `connect`\n    \n*   `gameplay`\n    \n*   `match`\n    \n*   `session`\n    \n\nWe are going to show how the all connect"
         },
         {
             "type": "snippet",
